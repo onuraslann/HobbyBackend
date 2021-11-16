@@ -11,5 +11,10 @@ namespace Business.Abstract
    public interface IBookService
     {
         IResult Add(Book book);
+        IResult Delete(Book book);
+
+        IDataResult<List<Book>> GetAll();
+
+        IDataResult<List<Book>> GetByCategory(int categoryid);
     }
 }

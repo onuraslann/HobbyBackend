@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -24,7 +25,23 @@ namespace Business.Concrete
         {
 
             _bookDal.Add(book);
-            return new SuccessResult();
+            return new SuccessResult(Messages.BookAdded);
+        }
+
+        public IResult Delete(Book book)
+        {
+            _bookDal.Delete(book);
+            return new SuccessResult(Messages.BookDeleted);
+        }
+
+        public IDataResult<List<Book>> GetAll()
+        {
+            return new SuccessDataResult<List<Book>>(_bookDal.GetAll());
+        }
+
+        public IDataResult<List<Book>> GetByCategory(int categoryid)
+        {
+            return new SuccessDataResult<List<Book>>(_bookDal.GetAll(x=>x.CategoryId==categoryid));
         }
     }
 }
