@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Result;
 using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<Book>> GetAll();
 
         IDataResult<List<Book>> GetByCategory(int categoryid);
+        IDataResult<List<BookDetailsDto>> GetByDto();
     }
 }

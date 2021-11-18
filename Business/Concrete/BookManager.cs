@@ -4,6 +4,7 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,11 @@ namespace Business.Concrete
         public IDataResult<List<Book>> GetByCategory(int categoryid)
         {
             return new SuccessDataResult<List<Book>>(_bookDal.GetAll(x=>x.CategoryId==categoryid));
+        }
+
+        public IDataResult<List<BookDetailsDto>> GetByDto()
+        {
+            return new SuccessDataResult<List<BookDetailsDto>>(_bookDal.GetByDto());
         }
     }
 }
