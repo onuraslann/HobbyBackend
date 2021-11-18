@@ -14,6 +14,6 @@ namespace Entities.Concrete
         public int WriterId { get; set; }
         public int Point { get; set; }
         public int CategoryId { get; set; }
-        public Nullable<double> Price { get; set; }
+        public int Price { get; set; }
     }
 }
