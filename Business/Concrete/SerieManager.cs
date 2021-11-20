@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Caching;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -26,6 +27,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.SerieAdded);
         }
 
+        [CacheAspect]
         public IDataResult<List<Serie>> GetAll()
         {
             return new SuccessDataResult<List<Serie>>(_serieDal.GetAll());
