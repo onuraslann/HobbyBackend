@@ -19,7 +19,7 @@ namespace Business.Concrete
         {
             _writerDal = writerDal;
         }
-        [SecuredOperation("editor")]
+        //[SecuredOperation("editor")]
         public IResult Add(Writer writer)
         {
             _writerDal.Add(writer);

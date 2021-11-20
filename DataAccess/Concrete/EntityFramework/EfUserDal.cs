@@ -9,24 +9,25 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class UserManager : EfEntityRepositoryBase<User, HobbyContext>, IUserDal
+    public class EfUserDal : EfEntityRepositoryBase<User, HobbyContext>, IUserDal
     {
         public List<OperationClaim> GetClaims(User user)
         {
             using (HobbyContext context = new HobbyContext())
             {
                 var result = from operationClaims in context.OperationClaims
-                             join useroperationClaims in context.UserOperationClaims
-                       on operationClaims.Id equals useroperationClaims.OperationClaimId
-                             join users in context.Users
-                             on useroperationClaims.UserId equals users.Id
+                             join userOperationClaims in context.UserOperationClaims
+                           on operationClaims.Id equals userOperationClaims.OperationClaimId
+                             join
+                            users in context.Users on
+                          userOperationClaims.UserId equals users.Id
                              select new OperationClaim
                              {
                                  Id = operationClaims.Id,
                                  Name = operationClaims.Name
                              };
                 return result.ToList();
-                            
+
             }
            
 

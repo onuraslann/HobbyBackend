@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("add")]
+        [HttpPost   ("add")]
         public IActionResult Add(Category category)
         {
             var result = _categoryService.Add(category);

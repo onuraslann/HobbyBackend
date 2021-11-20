@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,11 @@ namespace Business.Constants
 
         public static string SerieAdded = "Dizi eklendi";
         public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string UsersAdded = "Kayıt işlemi başarılı bir şekilde gerçekleştirildi";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Hatalı parola";
+        public static string SuccessLogin = "Giriş işlemi başarılı";
+        public static string UserAlreadyExists = "Kullanıcı mevcut başka bir kullanıcı ismi giriniz";
+        public static string AccessTokenAdded = "Token başarılı bir şekilde oluşturuldu";
     }
 }
