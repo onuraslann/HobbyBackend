@@ -20,7 +20,7 @@ namespace Business.Concrete
         {
             _serieDal = serieDal;
         }
-
+        [CacheRemoveAspect("ISerieService.Get")]
         public IResult Add(Serie serie)
         {
             _serieDal.Add(serie);
@@ -28,6 +28,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+
         public IDataResult<List<Serie>> GetAll()
         {
             return new SuccessDataResult<List<Serie>>(_serieDal.GetAll());

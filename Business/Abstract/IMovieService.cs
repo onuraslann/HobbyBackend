@@ -13,5 +13,6 @@ namespace Business.Abstract
         IDataResult<List<Movie>> GetAll();
         IResult Add(Movie movie);
         IDataResult<List<Movie>> GetByCategory(int categoryid);
+        IResult TransactionalOperation(Movie movie);
     }
 }

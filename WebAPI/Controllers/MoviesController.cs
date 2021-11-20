@@ -39,5 +39,15 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("transactional")]
+        public IActionResult TransactionTest(Movie movie)
+        {
+            var result = _moviesService.TransactionalOperation(movie);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

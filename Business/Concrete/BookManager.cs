@@ -2,6 +2,7 @@
 using Business.BusinessAspects;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Caching;
 using Core.Aspects.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
@@ -45,7 +46,7 @@ namespace Business.Concrete
             _bookDal.Delete(book);
             return new SuccessResult(Messages.BookDeleted);
         }
-
+        [CacheAspect]
         public IDataResult<List<Book>> GetAll()
         {
             return new SuccessDataResult<List<Book>>(_bookDal.GetAll());
