@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,7 +19,7 @@ namespace Business.Concrete
         {
             _writerDal = writerDal;
         }
-
+        [SecuredOperation("editor")]
         public IResult Add(Writer writer)
         {
             _writerDal.Add(writer);

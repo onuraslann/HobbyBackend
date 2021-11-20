@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Validation;
@@ -22,7 +23,7 @@ namespace Business.Concrete
         {
             _categoryDal = categoryDal;
         }
-
+        [SecuredOperation("admin")]
         [ValidationAspect(typeof(CategoryValidator))]
         public IResult Add(Category category)
         {
